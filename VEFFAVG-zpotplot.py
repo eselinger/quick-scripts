@@ -47,7 +47,7 @@ def main():
     n = 0
 
     for k in range(znum):
-        pot_array[k][0] = float(k*zvec*0.529177249*86.33708880000000/(znum*zvec))
+        pot_array[znum-k-1][0] = float(k*zvec*0.529177249*86.33708880000000/(znum*zvec))
         for j in range (ynum):
             for i in range(xnum):
                 pot_array[k][1] = pot_array[k][1] + pot[n]
@@ -64,6 +64,10 @@ def main():
     plt.plot(z,E)
     plt.xlabel('z(A)')
     plt.ylabel('<V>')
-    
+
+    plt.plot((13.7,13.706), (-3.0, 0.5), 'black')
+    plt.text(20,-0.75,'H2O')
+    plt.text(4.5,-0.25,'Pt')
+
     plt.show()
 main()
