@@ -49,9 +49,9 @@ def main():
     for k in range(znum):
         for j in range (ynum):
             for i in range(xnum):
-                pot_array[n][0] = float(i*xvec)
-                pot_array[n][1] = float(j*yvec)
-                pot_array[n][2] = float(k*zvec)
+                pot_array[n][0] = float(i*xvec*0.529177249*21.24619574011909/(xnum*xvec))
+                pot_array[n][1] = float(j*yvec*0.529177249*18.399745250630698/(ynum*yvec))
+                pot_array[n][2] = float(k*zvec*0.529177249*86.33708880000000/(znum*zvec))
                 pot_array[n][3] = pot[n]
                 n = n+1
 # pot_array is now array of x,y,z,pot explicitly
