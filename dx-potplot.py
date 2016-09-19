@@ -34,6 +34,8 @@ def main():
 
     pot = []
 
+    #putting data in 1xN array
+
     for i in range(len(array)):
         for j in range(len(array[i])):
             array[i][j] = float(array[i][j])
