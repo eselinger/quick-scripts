@@ -53,7 +53,7 @@ def main():
                 pot_array[k][1] = pot_array[k][1] + pot[n]
                 n = n+1
 
-        pot_array[k][1] = pot_array[k][1]/(ynum+xnum)
+        pot_array[k][1] = pot_array[k][1]/(ynum*xnum)
 
 # pot_array is now array of E(z)
 
