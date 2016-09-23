@@ -25,7 +25,12 @@ def main():
 
     line = readin.readline()
     line = line.split()
-    numat = int(line[0]) + int(line[1]) + int(line[2]) #gets number of atoms in config
+    numat = 0
+    if len(line) > 1:
+        for i in range(len(line)):
+            numat = numat + int(line[i]) #gets number of atoms in config
+    else:
+        numat = int(line[0])
 
     for i in range(numat+2): #skipping over coordinates
         readin.readline()
