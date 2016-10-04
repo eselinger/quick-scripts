@@ -1,10 +1,6 @@
 #!/usr/bin/python
 
 import sys
-import numpy as np
-from matplotlib import pyplot as plt
-from mpl_toolkits.mplot3d import axes3d
-import matplotlib.cm as cm
 
 def main():
 
