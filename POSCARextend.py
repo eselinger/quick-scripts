@@ -30,8 +30,8 @@ def main():
     line = [int(element)*n[0]*n[1]*n[2] for element in readin.readline().split()] #multiplies each type of atom by input amts
     readout.write(' '.join(map(str,line))+'\n') #write total # atoms
 
-#just direct case for now, add for cartesian eventually
-    readout.write(readin.readline())
+    ctype = readin.readline()
+    readout.write(ctype)
     coords = readin.readlines()
     coords = [line.split()[0:3] for line in coords]
     cart = [[float(line[0])*old[0], float(line[1])*old[1], float(line[2])*old[2]] for line in coords] #puts data in cartesian
@@ -42,7 +42,10 @@ def main():
         for z in range(n[2]):
             for y in range(n[1]):
                 for x in range(n[0]):
-                    data.append([line[0]+old[0]*x, line[1]+old[1]*y, line[2]+old[2]*z])
+                    if "Direct" in ctype or "direct" in ctype:
+                        data.append([(line[0]+old[0]*x)/new[0], (line[1]+old[1]*y)/new[1], (line[2]+old[2]*z)/new[2]])
+                    else:
+                        data.append([line[0]+old[0]*x, line[1]+old[1]*y, line[2]+old[2]*z])
 
     for line in data:
         readout.write(' '.join('{:f}'.format(element) for element in line) + '\n')
