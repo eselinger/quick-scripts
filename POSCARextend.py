@@ -23,7 +23,7 @@ def main():
         line = readin.readline() 
         old[i] = float(line.split()[i])
         line = [float(element)*n[i] for element in line.split()]
-        readout.write(' '.join(map(str,line))+'\n')
+        readout.write(' '.join('{:f}'.format(element) for element in line) +'\n')
         new[i] = line[i] #gets length in each direction, stored in length = [x,y,z]
 
     readout.write(readin.readline()) #elements
@@ -45,5 +45,5 @@ def main():
                     data.append([line[0]+old[0]*(x+1), line[1]+old[1]*(y+1), line[2]+old[2]*(z+1)])
 
     for line in data:
-        readout.write(' '.join(map(str,line))+'\n')
+        readout.write(' '.join('{:f}'.format(element) for element in line) + '\n')
 main()
