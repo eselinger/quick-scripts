@@ -8,6 +8,7 @@ import matplotlib.cm as cm
 
 def main():
 
+    zlength = float(sys.argv[1])
     infile = "VEFFAVG.dx" #input dx file from paratec
 
     readin = open(infile,'r')
@@ -47,7 +48,7 @@ def main():
     n = 0
 
     for k in range(znum):
-        pot_array[znum-k-1][0] = float(k*zvec*0.529177249*86.33708880000000/(znum*zvec))
+        pot_array[znum-k-1][0] = float(k*zvec*0.529177249*zlength/(znum*zvec))
         for j in range (ynum):
             for i in range(xnum):
                 pot_array[k][1] = pot_array[k][1] + pot[n]
@@ -55,9 +56,12 @@ def main():
 
         pot_array[k][1] = pot_array[k][1]/(ynum*xnum)
 
+    for line in pot_array:
+        print " ".join(map(str,line))
+        
 # pot_array is now array of E(z)
 
-
+"""
     z = pot_array[:,0]
     E = pot_array[:,1]
 
@@ -70,4 +74,5 @@ def main():
     plt.text(4.5,-0.25,'Pt')
 
     plt.show()
+"""
 main()

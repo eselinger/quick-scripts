@@ -66,10 +66,11 @@ def main():
 
         pot_array[k][1] = pot_array[k][1]/(ynum*xnum)
 
+    for line in pot_array:
+        print " ".join(map(str,line))
 # pot_array is now array of E(z)
 
-
-    z = pot_array[:,0]
+"""    z = pot_array[:,0]
     E = pot_array[:,1]
 
     plt.plot(z,E)
@@ -77,11 +78,11 @@ def main():
     plt.ylabel('<V>')
 
 
-    plt.plot((17.21134205,17.3), (-40, 10), 'black') #extra line to show where interface is, coordinates are (x1,x2), (y1,y2)
-    plt.plot((17.3668,17.4), (-40,10), 'red')
+#    plt.plot((17.21134205,17.3), (-40, 10), 'black') #extra line to show where interface is, coordinates are (x1,x2), (y1,y2)
+#    plt.plot((17.3668,17.4), (-40,10), 'red')
 
-    plt.text(28,-5,'vacuum')
-    plt.text(8,0,'Pt')
+#    plt.text(28,-5,'vacuum')
+#    plt.text(8,0,'Pt')
 
-    plt.show()
+    plt.show()"""
 main()

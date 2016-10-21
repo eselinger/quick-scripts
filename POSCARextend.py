@@ -4,8 +4,8 @@ import sys
 
 def main():
 
-    infile = "POSCAR" #input POSCAR file
-    n = [int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])] #number to replicate in each dir
+    infile = str(sys.argv[1]) #input POSCAR file
+    n = [int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])] #number to replicate in each dir
 
     readin = open(infile,'r')
     readout = open("NEWPOSCAR",'w')
@@ -27,6 +27,9 @@ def main():
     readout.write(' '.join(map(str,line))+'\n') #write total # atoms
 
     ctype = readin.readline()
+    if "S" in str(ctype):
+        readout.write(ctype)
+        ctype = readin.readline()
     readout.write(ctype)
     coords = readin.readlines()
     coords = [line.split()[0:3] for line in coords]
