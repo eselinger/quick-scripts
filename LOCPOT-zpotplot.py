@@ -50,8 +50,11 @@ def main():
     readin.close()
     array = np.array([[float(element) for element in line.split()] for line in array[:]]) #taking pot data
 
+    pot = []
 #putting data in 1xN array
-    pot = array.flatten()
+    for line in array:
+        for element in line:
+            pot.append(element)
 
 #putting xy-planar avg'd pot data into Exz array
     pot_array = np.zeros(shape=(znum,2))
