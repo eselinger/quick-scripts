@@ -1,7 +1,9 @@
 #!/bin/bash
 
+read -p "Window size: " window
+
 for i in {00..49}; do
-    cp "$i/hartree.dat" "file$i.dat"
+    cp "$i/ravg${window}.dat" "file$i.dat"
 done
 
 awk 'FNR == 1 { nfiles++; ncols = 3 }
@@ -15,6 +17,6 @@ awk 'FNR == 1 { nfiles++; ncols = 3 }
                 printf "  %f", sum[line,col]/nfiles;
             printf "\n"
         }
-    }' file*.dat > zavg.dat
+    }' file*.dat > "final${window}avg.dat"
 
 rm file*.dat
